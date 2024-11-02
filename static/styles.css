@@ -1,0 +1,25 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Add any additional styles here if needed */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: url('hero-dark@90.dba36cdf.jpg'); /* Update this path */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+     /* Prevent repeating */
+    color: rgb(255, 255, 255); /* Ensure text color is readable */
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+ 
+ 
+

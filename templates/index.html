@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="text-2xl font-semibold mb-4">Video List</h2>
+
+    <form method="GET" action="/" class="mb-4">
+        <select name="filter" onchange="this.form.submit()" class="border border-gray-300 rounded-md p-2 bg-white shadow-sm focus:ring focus:ring-red-300">
+            <option value="">All Categories</option>
+            <option value="Projects" {% if request.args.get('filter') == 'Projects' %}selected{% endif %}>Projects</option>
+            <option value="Ideas" {% if request.args.get('filter') == 'Ideas' %}selected{% endif %}>Ideas</option>
+            <option value="education" {% if request.args.get('filter') == 'education' %}selected{% endif %}>Education</option>
+        </select>
+    </form>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {% for video in videos %}
+            <div class="bg-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105">
+                <a href="{{ video.url }}" target="_blank">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}" class="w-full rounded-md mb-2">
+                    <h3 class="text-lg font-semibold text-gray-800">{{ video.title }}</h3>
+                    <p class="text-sm text-gray-600">Category: {{ video.category }}</p>
+                </a>
+                <form method="POST" action="{{ url_for('delete', video_index=loop.index0) }}" style="display: inline;">
+                    <button type="submit" class="mt-2 bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700">Remove</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
