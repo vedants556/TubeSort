@@ -29,8 +29,7 @@ This project is a web application for managing YouTube videos. Users can upload 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   https://github.com/vedants556/TubeSort.git
    ```
 
 2. Install the required dependencies:
